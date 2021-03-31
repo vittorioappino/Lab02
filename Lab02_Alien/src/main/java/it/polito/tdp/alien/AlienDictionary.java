@@ -5,15 +5,15 @@ import java.util.List;
 
 public class AlienDictionary {
 	
-	private List<Word> lista;
+	private List<WordEnhanced> lista;
 	
 	public AlienDictionary() {
 		this.lista = new ArrayList<>();
 	}
 
 	public void addWord(String alienWord, String translation) {
-		Word word = new Word(alienWord, translation);
-		for(Word w: lista) {
+		WordEnhanced word = new WordEnhanced(alienWord, translation);
+		for(WordEnhanced w: lista) {
 			if(w.equals(word)) {
 				w.setTranslation(translation);
 				return;
@@ -23,12 +23,12 @@ public class AlienDictionary {
 	}
 	
 	public String translateWord(String alienWord) {
-		for(Word w: lista) {
+		for(WordEnhanced w: lista) {
 			if(w.getAlienWord().equals(alienWord)) {
 				return w.getTranslation();
 			}
 		}
-		return null;
+		return "la parola non è presente nel dizionario";
 		
 	}
 	

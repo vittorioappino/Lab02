@@ -40,20 +40,27 @@ public class FXMLController {
 
     @FXML
     void doTranslate(ActionEvent event) {
-    	String riga = TxtInserisci.getText().toLowerCase().replace(" ", ";");
-    	if(riga.matches("((?=.*\\d).{0,})")||riga.matches("((?=.*[!?@#]).{0,})")) {
-    		TxtMostra.setText("Le parole inserite devono contenere solo caretteri alfabetici");
-		}if(riga.isEmpty()){
+    	TxtMostra.clear();
+    	String riga = TxtInserisci.getText().toLowerCase();
+    	if(riga.isEmpty()){
 			TxtMostra.setText("Nessuna parola inserita");
 			return;
 		}else {
 			String[] array;
-			array = riga.split(";");
+			array = riga.split(" ");
 	    	if(array.length==1) {
+	    		if (!array[0].matches("[a-zA-Z]*")) {
+					TxtMostra.setText("Inserire solo caratteri alfabetici.");
+					return;
+				}
 	    		String traduzione= Dizionario.translateWord(array[0]);
 	    		TxtMostra.setText(traduzione);
 	    	}
 	    	if(array.length==2) {
+	    		if (!array[0].matches("[a-zA-Z]*") || !array[1].matches("[a-zA-Z]*")) {
+					TxtMostra.setText("Inserire solo caratteri alfabetici.");
+					return;
+				}
 	    		Dizionario.addWord(array[0], array[1]);
 	    	}
     	}

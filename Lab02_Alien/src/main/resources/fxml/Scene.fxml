@@ -46,7 +46,7 @@
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </HBox.margin>
                   </Button>
-                  <ImageView fitHeight="100.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView disable="true" fitHeight="100.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../../../../../Desktop/POLITO/3%20anno%202%20semestre/Tecniche%20di%20Programmazione/Imm%20Lab%2002/kisspng-alien-extraterrestrial-life-logo-sticker-ufo-5abd2150f351e3.0570063115223442729967.jpg" />
                      </image>
