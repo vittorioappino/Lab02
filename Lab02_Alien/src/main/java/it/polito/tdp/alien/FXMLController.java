@@ -49,11 +49,17 @@ public class FXMLController {
 			String[] array;
 			array = riga.split(" ");
 	    	if(array.length==1) {
-	    		if (!array[0].matches("[a-zA-Z]*")) {
+	    		String traduzione;
+	    		if (!array[0].matches("[a-zA-Z?]*")) {
 					TxtMostra.setText("Inserire solo caratteri alfabetici.");
 					return;
 				}
-	    		String traduzione= Dizionario.translateWord(array[0]);
+	    		if (array[0].matches("[a-zA-Z?]*") && !array[0].matches("[a-zA-Z]*")) {
+					traduzione = Dizionario.translateWordWildCard(array[0]);
+					TxtMostra.setText(traduzione);
+					return;
+				} 
+	    		traduzione= Dizionario.translateWord(array[0]);
 	    		TxtMostra.setText(traduzione);
 	    	}
 	    	if(array.length==2) {

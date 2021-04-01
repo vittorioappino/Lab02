@@ -62,5 +62,11 @@ public class WordEnhanced {
 			return false;
 		return true;
 	}
+
+	public boolean compareWild(String alienWild) {
+		if (alienWord.matches(alienWild))
+			return true;
+		return false;
+	}
 	
 }

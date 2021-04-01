@@ -35,4 +35,23 @@ public class AlienDictionary {
 	public void doReset() {
 		lista.clear();
 	}
+
+	public String translateWordWildCard(String alienWildCard) {
+		alienWildCard = alienWildCard.replaceAll("\\?", ".");
+
+		int matchCounter = 0;
+		StringBuilder sb = new StringBuilder();
+
+		for (WordEnhanced w : lista) {
+			if (w.compareWild(alienWildCard)) {
+				matchCounter++;
+				sb.append(w.getTranslation() + "\n");
+			}
+		}
+		
+		if (matchCounter != 0)
+			return sb.toString();
+		else
+			return null;
+	}
 }
